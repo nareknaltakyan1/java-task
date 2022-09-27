@@ -17,6 +17,19 @@ public class Task1 {
      * @return - the length of the last word in the string.
      */
     public int lengthOfLastWord(String str) {
-        return 0;
+        boolean char_flag = false;
+        int len = 0;
+        char[] charArr = str.toCharArray();
+        for (int i = charArr.length - 1; i >= 0; i--) {
+            if (Character.isLetter(charArr[i])) {
+                char_flag = true;
+                len++;
+            }
+            else {
+                if (char_flag)
+                    return len;
+            }
+        }
+        return len;
     }
 }
